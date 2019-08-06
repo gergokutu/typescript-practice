@@ -4,12 +4,14 @@ import {createKoaServer} from 'routing-controllers'
 import PageController from './pages/controller'
 // for database
 import setupDb from './db'
+import UserController from './users/controller';
 
 const port = process.env.PORT || 4000
 
 const app = createKoaServer({
   controllers: [
-    PageController
+    PageController,
+    UserController
   ]
 })
 
