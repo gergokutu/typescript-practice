@@ -11,7 +11,7 @@
     "sourceMap": true,
     "strictNullChecks": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "emitDecoratorMetadata": false, // if it's true » experimentalDecoratos is a problem...
     "target": "es2017",
     "outDir": "target/",
     "rootDir": "src/"
