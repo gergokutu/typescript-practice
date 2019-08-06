@@ -32,9 +32,12 @@ export default class UserController {
 
   @Post('/users')
   @HttpCode(201)
-  createUser(
-    @Body() page: User
-  ): Promise <User> {
-    return page.save()
-  }
+async createUser(
+  @Body() user: User
+): Promise <User>  {
+  const {password, ...rest} = user
+  const entity = User.create(rest)
+  await entity.setPassword(password)
+  return entity.save()
+}
 }
