@@ -8,9 +8,9 @@ interface PageDatabase {
   [id: number]: Page
 }
 
-export interface PageList {
-  [pages: string]: PageDatabase
-}
+// export interface PageList {
+//   [pages: string]: PageDatabase
+// }
 
 const pagesById: PageDatabase = {
   1: {
