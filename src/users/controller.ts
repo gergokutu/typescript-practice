@@ -23,7 +23,7 @@ export default class UserController {
   async updateUser(
     @Param('id') id: number,
     @Body() update: Partial<User>
-  ): Promise <User | undefined> {
+  ): Promise<User | undefined> {
     const page = await User.findOne(id)
     if (!page) throw new NotFoundError('Cannot find page')
 
@@ -32,12 +32,12 @@ export default class UserController {
 
   @Post('/users')
   @HttpCode(201)
-async createUser(
-  @Body() user: User
-): Promise <User>  {
-  const {password, ...rest} = user
-  const entity = User.create(rest)
-  await entity.setPassword(password)
-  return entity.save()
-}
+  async createUser(
+    @Body() user: User
+  ): Promise<User> {
+    const { password, ...rest } = user
+    const entity = User.create(rest)
+    await entity.setPassword(password)
+    return entity.save()
+  }
 }

@@ -52,7 +52,7 @@
 //   console.log(`Incoming POST body param:`, body)
 //   return body
 // }
-import { JsonController, Get, Param, Put, Body, NotFoundError, Post, HttpCode } from 'routing-controllers'
+import { JsonController, Get, Param, Put, Body, NotFoundError, Post, HttpCode, Authorized } from 'routing-controllers'
 import Page from './entity'
 
 type PageList = { pages: Page[] }
@@ -73,6 +73,7 @@ export default class PageController {
     return { pages }
   }
 
+  @Authorized()
   @Put('/pages/:id')
   async updatePage(
     @Param('id') id: number,
@@ -84,6 +85,7 @@ export default class PageController {
     return Page.merge(page, update).save()
   }
 
+  @Authorized()
   @Post('/pages')
   @HttpCode(201)
   createPage(
