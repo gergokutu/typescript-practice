@@ -9,7 +9,7 @@ interface PageDatabase {
 }
 
 export interface PageList {
-  [pages: string]: PageDatabase[]
+  [pages: string]: PageDatabase
 }
 
 const pagesById: PageDatabase = {
