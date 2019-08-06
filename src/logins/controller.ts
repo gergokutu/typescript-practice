@@ -4,7 +4,6 @@ import { IsString } from 'class-validator'
 import {sign} from '../jwt'
 import User from '../users/entity'
 
-
 class AuthenticatePayload {
   @IsString()
   email: string
@@ -20,7 +19,7 @@ export default class LoginController {
   @HttpCode(201)
   async authenticate(
     @Body() {email, password}: AuthenticatePayload
-  ) {
+  ): Promise<{jwt: string}> {
     // if user exists
     // if password is correct
     // send back a jwt token
